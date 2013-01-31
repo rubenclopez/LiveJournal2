@@ -1,0 +1,73 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+article {
+  padding: 15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+       -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+ 
+
+  border-radius: 5px;
+  
+  background-color: rgba(0, 0,0, 0.4);
+}
+
+article header {
+  margin-bottom: 30px;
+   
+}
+
+article p {
+  font-size: 12px;
+
+}
+
+article footer {
+
+  margin-top: 15px;}
+
+
+
+section#form {
+  text-align: left;
+}
+
+section#form input[type=text] {
+  background-color: black;
+  border: 0px;
+  color: yellow;
+}
+
+section#form textarea {
+  background-color: black;
+  border: 0px;
+  color: yellow;
+}
+
+
+span#entry-controls {
+  font-size: 10px;
+}
+
+span.date, span.posted-name {
+  font-size: 14px;
+  font-style: italic;
+  color: yellow;
+}
+
+li.journal-name a:visited {
+  color: orange;
+}
+
+li.journal-name a:hover {
+  color:white;
+}

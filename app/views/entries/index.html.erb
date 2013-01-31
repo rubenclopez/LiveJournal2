@@ -1,0 +1,71 @@
+          <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+          <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+              <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">LiveJournal 2.0</a>
+                <div class="nav-collapse collapse">
+                  <ul class="nav">
+                    <li><%= link_to "Add new entry", new_user_journal_entry_path(@user, @journal) %>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li class="nav-header">Nav header</li>
+                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">One more separated link</a></li>
+                    </ul>
+                    </li>
+                    <li class="journal-name"><%= link_to "Journal: #{Journal.find(params[:journal_id]).name}", user_journals_path(@user) %></li>
+                  </ul>
+                  <!-- 
+                  <form class="navbar-form pull-right">
+                    <input class="span2" type="text" placeholder="Email">
+                    <input class="span2" type="password" placeholder="Password">
+                    <button type="submit" class="btn">Sign in</button>
+                  </form>
+                  -->
+                </div><!--/.nav-collapse -->
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+
+            <!-- Main hero unit for a primary marketing message or call to action -->
+            <div class="hero-unit">
+              <h1>LiveJournal</h1>
+              <h2 style="margin-left: 200px; color: orange;"><%= @journal.name %></h2>
+            </div>
+
+            <!-- Example row of columns -->
+
+            
+            <% @entries.reverse.each do |entry| %>
+              <article>
+                <header>
+                  <h1><%= entry.title %></h1>
+                </header>
+                <p><%= entry.body %></p>
+                <footer>
+                <p>posted 
+                  <span class="date"><%= entry.created_at %></span> by 
+                  <span class="posted-name"><%= @user.full_name %></span></p>
+                <span id="entry-controls">
+                  <%= link_to 'Edit', edit_user_journal_entry_path(@user, @journal, entry) %> | <%= link_to 'Delete', user_journal_entry_path(@user, @journal, entry), :method => "DELETE" %>
+                </span>
+                </footer>
+              </article>
+              <br />
+            <% end %>

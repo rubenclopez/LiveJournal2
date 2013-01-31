@@ -1,0 +1,29 @@
+<h1>Listing journals</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Private</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @journals.each do |journal| %>
+  <tr>
+    <td><%= journal.name %></td>
+    <td><%= journal.description %></td>
+    <td><%= journal.private %></td>
+    <td><%= journal.user_id %></td>
+    <td><%= link_to 'Show', user_journal_path(@user, journal) %></td>
+    <td><%= link_to 'Edit', edit_user_journal_path(@user, journal) %> | <%= link_to 'Delete', user_journal_path(@user, journal), :method => "DELETE" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Journal', new_user_journal_path(@user) %>
